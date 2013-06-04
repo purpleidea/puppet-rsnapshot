@@ -85,7 +85,7 @@ class rsnapshot(
 			require => File["${vardir}/"],
 		}
 		$bad_line = '	if($config_file =~ /^`.*`$/) {'	# search for bug
-		exec { '/bin/cp -a /var/lib/puppet/tmp/rsnapshot/rsnapshot.fixed /usr/bin/rsnapshot':
+		exec { "/bin/cp -a ${vardir}/rsnapshot.fixed /usr/bin/rsnapshot":
 			onlyif => "/bin/grep -qFx '${bad_line}' '/usr/bin/rsnapshot'",
 			require => [File["${vardir}/rsnapshot.fixed"], Package['rsnapshot']],
 		}
