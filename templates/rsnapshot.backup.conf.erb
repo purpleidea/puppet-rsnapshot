@@ -1,0 +1,7 @@
+<% if comment != '' -%>
+#
+#	<%= comment %>
+#
+<% end -%>
+backup	<%= source %>	<%= name.chomp('/')+'/' %><% if options != [] %>	<%= options.join(',') %><% end %>
+
